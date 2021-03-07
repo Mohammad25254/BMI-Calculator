@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: blue;
+        }
+
+
+        .bml-calculate-side-layout {
+            display: grid;
+            grid-template-columns: 20% 80%  ;
+        }
+
+        .bml-calculate-side-layout>div {
+            background: black;
+            padding: 20px;
+            margin: 2px;
+            color: white;
+            height: 1000px;
+
+
+        }
+
+        .bml-calculate-side-layout>div:nth-child(odd) {
+            background: #2A2D2E;
+            color: whitesmoke;
+            height: 1000px;
+            display: inline;
+
+        }
+
+        #header-1 {
+            color: blue;
+            text-align: center;
+            border-bottom: 2px solid goldenrod;
+
+
+        }
+
+        .label-froms {
+            width: 100px;
+            color: white;
+        }
+
+        .span-point {
+            float: right;
+            margin-right: 10px;
+
+        }
+
+        #bmi {
+            border: 1px solid green;
+            background-color: blue;
+        }
+
+        .from-elements-flex {
+            display: flex;
+           
+        }
+        #lop{
+            height: 300px;
+            width: 1480px;
+            background-color: white;
+        }
+        #link{
+            text-decoration: none;
+            border: solid red;
+        }
+        #link:hover{
+          
+            color: white;
+            border: 3px solid green;
+        }
+        #li-2{
+           
+            font-style: italic;
+        }
+        #lop{
+            background-color: black;
+            color: green;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+        }
+        
+       
+    </style>
+    <link rel="stylesheet" href="vando/fontawesome-free-5.15.1-web/css/all.css">
+</head>
+
+<body>
+
+  
+    <div class="bml-calculate-side-layout">
+        <div>
+            <p id="bmi"> BMI calculator</p>
+           <a id="li-2" href="rahrenheit to celsius.html">(Fahrenheit TO Celsius)</a> <br><hr>
+
+           <a id="link" href="meter tofeet.html"><i class="fab fa-audible"></i> (metre to feet)</a>
+           <a href=" <div id='lop'><h1>header point</h1></div>">limk</a>
+        </div>
+        <div>
+            <h1 id="header-1"><i class="fab fa-artstation"></i> BMI calculator </h1>
+            <div class="from-elements-flex">
+                <div class="label-froms">
+                    <label for="">Height <span class="span-point">:</span></label>
+                </div>
+                <div>
+                   <table>
+                       <tr>
+                           <td><input type="number" id="txtheight" value="1.59"></td>
+                           <td><select id="list" form="carform">
+                            <option value="inch">inch</option>
+                            <option value="feet">feet</option>
+                            <option value="meter">meter</option>
+                            
+                          </select></td>
+                       </tr>
+                   </table> 
+                </div>
+               
+
+            </div><br>
+            <div class="from-elements-flex">
+                <div class="label-froms">
+                    <label for=""> Weight <span class="span-point">:</span></label>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td> <input type="number" id="txtweight" value="49"></td>
+                            <td><select id="weight" form="weightform">
+                                <option value="kg">kg</option>
+                                <option value="pound">pound</option>
+                              </select></td>
+                        </tr>
+                    </table>
+                   
+                </div>
+
+
+            </div>
+          <div class="result-input">
+            <input type="button" onclick="calculate()" value="Calculate"><br><br>
+            Result <br><input type="text" name="" id="bmiresult">
+          </div>
+          
+
+        </div>
+        
+       
+     
+    </div>
+    <div id="lop"><h1>header point</h1></div>
+  
+    <div>
+        
+       
+    </div>
+    <script>
+        function calculate(){
+          
+            var weight=document.getElementById("txtweight").value;
+            var height=document.getElementById("txtheight").value;
+            var heightfloat=parseFloat(height);
+            var weightfloat=parseFloat(weight);
+
+            var heightunit=document.getElementById("list").value;
+            var weightunit=document.getElementById("weight").value;
+         if(heightunit=="inch"){
+            heightfloat=heightfloat*0.0254;
+
+         }else if(heightunit=="feet"){
+            heightfloat=heightfloat/3.2808;
+
+         }
+         if(weightunit=="pound"){
+            weightfloat= weightfloat/2.2046;
+
+         }
+            
+
+         
+         var bmi=weightfloat/(heightfloat*heightfloat);
+            document.getElementById("bmiresult").value=bmi.toFixed(2);
+            
+          
+          
+           
+          
+           
+        }
+        
+       
+    </script>
+  
+
+
+</body>
+
+</html>
